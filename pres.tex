@@ -1,0 +1,115 @@
+\documentclass[mathserif]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{color}
+
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{xcolor,color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dkpurple}{rgb}{0.4,0.1,0.4}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+
+\lstset
+{
+  tabsize=2,
+  basicstyle=\small\ttfamily, 
+  keywordstyle=\bfseries\color{dkpurple},
+  stringstyle=\color{blue}, 
+  commentstyle=\color{dkgreen}, 
+  showstringspaces=false,
+}
+
+\setbeamertemplate{note page}[default]
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen}
+
+% acceptable: default, Hannover, Goettingen, Szeged, Singapore, Boadilla
+\usetheme{Hannover}
+
+% acceptable: default, dove, maybe beaver
+\usecolortheme{default}
+
+\title{We are Turing Machines}
+  \author[TC CK]{Tyler~I.~Cecil\\Christopher~Koch}
+	\institute[New Mexico Tech]{
+		Department of Computer Science and Engineering\\
+		CSE424 Compiler Writing\\
+		New Mexico Tech
+	}
+	\date{November 10, 2014}
+	\subject{Computer Science}
+
+	\begin{document}
+		\frame{\titlepage}
+
+    \section{Decisions}
+    \begin{frame}
+      \frametitle{Entscheidungsproblem}
+
+      % what up, Hilbert?
+    \end{frame}
+
+    \section{Turing}
+    \begin{frame}
+      \frametitle{Turing -- Again}
+
+      We really like him!
+
+      % movie trailer
+    \end{frame}
+
+    \section{PDA}
+    \begin{frame}
+      \frametitle{Push-Down Automata}
+
+      States! Stack! Read-only input!
+
+      Task: Figure out whether a string of binary is of the form 
+      \[ 0^n 1^n \] for $n \geq 0$.
+
+      For example, $000111$ and $0011$ should be ``accepted,'' but $00111$ or
+      $0101$ should be ``rejected.''
+
+      % Example by us: a^n b^n PDA
+    \end{frame}
+
+    % Give 5 minutes for them to try to figure out a^n b^n c^n
+
+    \section{Turing Machines}
+    \begin{frame}
+      \frametitle{Turing Machines}
+
+      Same thing, but with two stacks! 
+      
+      Not really, but it's equivalent\ldots
+
+      Church-Turing
+
+      Lambda and G\"odel
+
+      % addition of binary numbers here
+    \end{frame}
+
+    \section{Equivalence and Proving It}
+    \begin{frame}
+      \frametitle{Equivalence and Proof Thereof}
+
+      \begin{center}
+      To show something is equivalent to a Turing machine, you only have to
+      have it simulate a Turing machine.
+
+      \vspace{10mm}
+
+      \Large You are a Turing Machine!
+      \end{center}
+    \end{frame}
+
+    \section{Halting Problem}
+    \begin{frame}
+      \frametitle{Halting Problem}
+
+    \end{frame}
+
+  \end{document}
