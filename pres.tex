@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext}
 \usepackage{color}
+\usepackage{multicol}
 
 \usepackage{listings}
 \usepackage{fancyvrb}
@@ -14,16 +15,16 @@
 \lstset
 {
   tabsize=2,
-  basicstyle=\small\ttfamily, 
+  basicstyle=\small\ttfamily,
   keywordstyle=\bfseries\color{dkpurple},
-  stringstyle=\color{blue}, 
-  commentstyle=\color{dkgreen}, 
+  stringstyle=\color{blue},
+  commentstyle=\color{dkgreen},
   showstringspaces=false,
 }
 
 \setbeamertemplate{note page}[default]
-%\setbeameroption{show notes}
-%\setbeameroption{show notes on second screen}
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen}
 
 % acceptable: default, Hannover, Goettingen, Szeged, Singapore, Boadilla
 \usetheme{Hannover}
@@ -32,84 +33,160 @@
 \usecolortheme{default}
 
 \title{We are Turing Machines}
-  \author[TC CK]{Tyler~I.~Cecil\\Christopher~Koch}
-	\institute[New Mexico Tech]{
-		Department of Computer Science and Engineering\\
-		CSE424 Compiler Writing\\
-		New Mexico Tech
-	}
-	\date{November 10, 2014}
-	\subject{Computer Science}
+\author[TC CK]{Tyler~I.~Cecil\\Christopher~Koch}
+\institute[New Mexico Tech]{
+  Department of Computer Science and Engineering\\
+  New Mexico Tech
+}
+\date{November 10, 2014}
+\subject{Computer Science}
 
-	\begin{document}
-		\frame{\titlepage}
+\begin{document}
+\frame{\titlepage}
 
-    \section{Decisions}
-    \begin{frame}
-      \frametitle{Entscheidungsproblem}
+\section{Decisions}
+\begin{frame}
+  \frametitle{What Does it Take to Be a Computer?}
 
-      % what up, Hilbert?
-    \end{frame}
+  For people who use computers every day, we need to ask two important questions\ldots
 
-    \section{Turing}
-    \begin{frame}
-      \frametitle{Turing -- Again}
+  \begin{enumerate}
+    \item But what does it take to \emph{be} a computer?
 
-      We really like him!
+    \item Are there limits to what computers can do?
+  \end{enumerate}
+\end{frame}
 
-      % movie trailer
-    \end{frame}
+\begin{frame}
+  \frametitle{Kurt G\"odel}
 
-    \section{PDA}
-    \begin{frame}
-      \frametitle{Push-Down Automata}
+  Questions like this first started being asked when this guy broke modern
+  mathematics.
 
-      States! Stack! Read-only input!
+  \vspace{2ex}
+  \centerline{\includegraphics[width=0.8\linewidth]{media/godel.jpg}}
+\end{frame}
 
-      Task: Figure out whether a string of binary is of the form 
-      \[ 0^n 1^n \] for $n \geq 0$.
+\begin{frame}
+  \frametitle{Entscheidungsproblem}
 
-      For example, $000111$ and $0011$ should be ``accepted,'' but $00111$ or
-      $0101$ should be ``rejected.''
+  \begin{multicols}{2}
+    After math broke, Hilbert asked an important question:
 
-      % Example by us: a^n b^n PDA
-    \end{frame}
+    \begin{quote}
+      What is the algorithm to decide whether or not a given theorem is always
+      true?
+    \end{quote}
 
-    % Give 5 minutes for them to try to figure out a^n b^n c^n
+    \includegraphics[width=\linewidth]{media/hilbert.jpg}
+  \end{multicols}
+\end{frame}
 
-    \section{Turing Machines}
-    \begin{frame}
-      \frametitle{Turing Machines}
+\begin{frame}
+  \frametitle{Algorithm}
+  In order to do this, we need a formal definition of an algorithm. This let
+  us define what it means to be ``Effectively Computable''.
 
-      Same thing, but with two stacks! 
-      
-      Not really, but it's equivalent\ldots
+  Many definitions of effective computability were proposed, each stronger than
+  the last.
+\end{frame}
 
-      Church-Turing
+\section{PDA}
+\begin{frame}
+  \frametitle{Push-Down Automata}
 
-      Lambda and G\"odel
+  Hear is one definition, that is often used:
 
-      % addition of binary numbers here
-    \end{frame}
+  You get a machine with
+  \begin{itemize}
+    \item A Stack, for memory.
+    \item A finite number of states, to represent ``stages'' in the algorithm.
+    \item Read-only input.
+  \end{itemize}
+\end{frame}
 
-    \section{Equivalence and Proving It}
-    \begin{frame}
-      \frametitle{Equivalence and Proof Thereof}
+\begin{frame}
+  \frametitle{Push-Down Automata Example}
+  Let's try our own!
 
-      \begin{center}
-      To show something is equivalent to a Turing machine, you only have to
-      have it simulate a Turing machine.
+  \begin{quote}
+    \textbf{Task:} Decide if a string of binary is of the form
+    \[0^n1^n\]
 
-      \vspace{10mm}
+    For example, $000111$ and $0011$ should pass, but $00111$ or $1010$ should
+    fail.
+  \end{quote}
+\end{frame}
 
-      \Large You are a Turing Machine!
-      \end{center}
-    \end{frame}
+\begin{frame}
+  \frametitle{Push-Down Automata Example}
+  Now a much harder example\ldots
 
-    \section{Halting Problem}
-    \begin{frame}
-      \frametitle{Halting Problem}
+  \begin{quote}
+    \textbf{Task:} Decide if a string of binary is of the form
+    \[0^n1^n0^n\]
 
-    \end{frame}
+    For example, $000111000$ and $001100$ should pass, but $000111$ or $0100$
+    should fail.
+  \end{quote}
+\end{frame}
 
-  \end{document}
+\begin{frame}
+  \frametitle{Sorry}
+
+  \centerline{Soo\ldots that last question was actually impossible!}
+\end{frame}
+
+% Give 5 minutes for them to try to figure out a^n b^n c^n
+
+\section{Turing}
+\begin{frame}
+  \frametitle{Turing and Church}
+
+  After some time of looking for an answer, these two men independently found
+  the most powerful kind of algorithms.
+  \begin{multicols}{2}
+    \includegraphics[width=0.9\linewidth]{media/turing.jpg}
+
+    \includegraphics[width=0.9\linewidth]{media/church.jpg}
+  \end{multicols}
+\end{frame}
+
+\section{Turing Machines}
+\begin{frame}
+  \frametitle{Turing Machines}
+
+  Alan Turing came up with what is known as \emph{Turing Machines}.
+
+  Same thing, but with two stacks!
+
+  Not really, but it's equivalent\ldots
+
+  Church-Turing
+
+  Lambda and G\"odel
+
+  % addition of binary numbers here
+\end{frame}
+
+\section{Equivalence and Proving It}
+\begin{frame}
+  \frametitle{Equivalence and Proof Thereof}
+
+  \begin{center}
+    To show something is equivalent to a Turing machine, you only have to
+    have it simulate a Turing machine.
+
+    \vspace{10mm}
+
+    \Large You are a Turing Machine!
+  \end{center}
+\end{frame}
+
+\section{Halting Problem}
+\begin{frame}
+  \frametitle{Halting Problem}
+
+\end{frame}
+
+\end{document}
