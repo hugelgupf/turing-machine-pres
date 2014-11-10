@@ -74,7 +74,7 @@
     After math broke, Hilbert asked an important question:
 
     \begin{quote}
-      What is the algorithm to decide whether or not a given theorem is always
+      What is the algorithm to decide whether or not a given statement is always
       true?
     \end{quote}
 
@@ -84,8 +84,8 @@
 
 \begin{frame}
   \frametitle{Algorithm}
-  In order to do this, we need a formal definition of an algorithm. This let
-  us define what it means to be ``Effectively Computable''.
+  To do this, we need a formal definition of an algorithm. Thus let
+  us define what it means to be ``effectively computable''.
 
   Many definitions of effective computability were proposed, each stronger than
   the last.
@@ -95,13 +95,14 @@
 \begin{frame}
   \frametitle{Push-Down Automata}
 
-  Hear is one definition, that is often used:
+  Hear is one definition that is often used:
 
   You get a machine with
   \begin{itemize}
-    \item A Stack, for memory.
-    \item A finite number of states, to represent ``stages'' in the algorithm.
-    \item Read-only input.
+    \item a stack, for memory,
+    \item a finite number of states, to represent ``stages'' in the algorithm,
+      and
+    \item read-only input.
   \end{itemize}
 \end{frame}
 
@@ -110,8 +111,12 @@
   Let's try our own!
 
   \begin{quote}
-    \textbf{Task:} Decide if a string of binary is of the form
-    \[0^n1^n\]
+    \textbf{Task:} Decide if a string of binary is of the form 
+      \[ 0^n1^n \]
+
+    \hrule
+
+    \vspace{5mm}
 
     For example, $000111$ and $0011$ should pass, but $00111$ or $1010$ should
     fail.
@@ -125,6 +130,11 @@
   \begin{quote}
     \textbf{Task:} Decide if a string of binary is of the form
     \[0^n1^n0^n\]
+    
+    \hrule
+
+    \vspace{5mm}
+
 
     For example, $000111000$ and $001100$ should pass, but $000111$ or $0100$
     should fail.
@@ -134,7 +144,7 @@
 \begin{frame}
   \frametitle{Sorry}
 
-  \centerline{Soo\ldots that last question was actually impossible!}
+  \centerline{So\ldots that last question was actually impossible!}
 \end{frame}
 
 % Give 5 minutes for them to try to figure out a^n b^n c^n
@@ -156,37 +166,68 @@
 \begin{frame}
   \frametitle{Turing Machines}
 
-  Alan Turing came up with what is known as \emph{Turing Machines}.
+  \begin{itemize}
+    \item Alan Turing came up with what is known as \emph{Turing Machines}.
 
-  Same thing, but with two stacks!
+    \item Same thing, but with two stacks!
 
-  Not really, but it's equivalent\ldots
-
-  Church-Turing
-
-  Lambda and G\"odel
-
-  % addition of binary numbers here
+    \item (Not really, but it's equivalent\ldots)
+  \end{itemize}
 \end{frame}
 
-\section{Equivalence and Proving It}
 \begin{frame}
-  \frametitle{Equivalence and Proof Thereof}
+  \frametitle{Turing Machine Example}
+
+  \begin{quote}
+    \textbf{Task:} Add two binary numbers of variable length. 
+
+    Assume the binary numbers are stored in reverse in the read-only input.
+  \end{quote}
+\end{frame}
+
+\section{Church-Turing}
+\begin{frame}
+  \frametitle{Church-Turing Thesis}
+
+  \begin{quote}
+    Everything that is computable is Turing computable.
+  \end{quote}
+
+  Read: There is nothing more powerful than a Turing machine.
+\end{frame}
+
+\section{Entscheidung}
+\begin{frame}
+  \frametitle{Entscheidungsproblem and Halting}
+
+  Remember the Entscheidungsproblem:
+    \begin{quote}
+      What is the algorithm to decide whether or not a given statement is always
+      true?
+    \end{quote}
+
+  Similarly, there is the Halting problem:
+  \begin{quote}
+    What is the algorithm to decide whether a given arbitrary algorithm will
+    halt?
+  \end{quote}
+
+\end{frame}
+
+\section{Equivalence}
+\begin{frame}
+  \frametitle{Equivalence}
 
   \begin{center}
-    To show something is equivalent to a Turing machine, you only have to
-    have it simulate a Turing machine.
+    (Given Church-Turing thesis, ) To show something is equivalent to a Turing
+    machine, you only have to have it simulate a Turing machine.
 
     \vspace{10mm}
 
     \Large You are a Turing Machine!
+
+    But are you more than a Turing machine?
   \end{center}
-\end{frame}
-
-\section{Halting Problem}
-\begin{frame}
-  \frametitle{Halting Problem}
-
 \end{frame}
 
 \end{document}
